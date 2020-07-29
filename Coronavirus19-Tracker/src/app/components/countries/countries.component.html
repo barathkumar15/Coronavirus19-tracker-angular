@@ -1,0 +1,40 @@
+<div class="jumbotron bg-black text-center" >
+  <h1 class="display-4"><i class="heartbeat icon"></i>CoronaVirus-19 <i class="chart bar icon"></i>Tracker Countrieswise</h1>
+  <hr>
+  <div class="mx-auto">
+    <div class="form-group col-lg-5 mx-auto">
+      <label for="c">Select Country</label>
+      <select id="" type="text" class="form-control" name="c" #input (change)='getCountry(input.value)'>
+        <option value="{{country.Slug}}" *ngFor= "let country of countries">{{country.Country}}</option>
+      </select>
+    </div>
+  </div>
+  <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive'
+[totalDeaths]='totalDeaths' [totalRecovered]='totalRecovered'></app-dashboard-card>
+<hr>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Country</th>
+        <th scope="col">Confirmed Cases</th>
+        <th scope="col">Recovered Cases</th>
+        <th scope="col">Deaths Cases</th>
+        <th scope="col">Active Cases</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let cs of selected; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{cs.Date|date}}</td>
+        <td>{{cs.Country}}</td>
+        <td>{{cs.Confirmed}}</td>
+        <td>{{cs.Recovered}}</td>
+        <td>{{cs.Deaths}}</td>
+        <td>{{cs.Active}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,109 @@
+<div class="jumbotron bg-black text-center" >
+   <h1 class="display-4"><i class="heartbeat icon"></i>CoronaVirus-19 <i class="chart bar icon"></i>Tracker <i class="fa fa-location-arrow" aria-hidden="true"></i> India</h1>
+  <h3 class="display-4"><i class="hospital icon"></i>Hospitals and <i class="bed icon"></i>Beds</h3>
+  <hr>
+  <div class="ui statistics">
+  <div class="red statistic">
+    <div class="value">
+      {{summary.ruralBeds}}
+    </div>
+    <div class="label">
+      RURAL BEDS
+    </div>
+  </div>
+  <div class="orange statistic">
+    <div class="value">
+      {{summary.ruralHospitals}}
+    </div>
+    <div class="label">
+      RURAL HOSPITALS
+    </div>
+  </div>
+  <div class="yellow statistic">
+    <div class="value">
+      {{summary.totalBeds}}
+    </div>
+    <div class="label">
+      TOTAL BEDS
+    </div>
+  </div>
+  <div class="olive statistic">
+    <div class="value">
+      {{summary.totalHospitals}}
+    </div>
+    <div class="label">
+      TOTAL HOSPITALS
+    </div>
+  </div>
+  <div class="green statistic">
+    <div class="value">
+      {{summary.urbanBeds}}
+    </div>
+    <div class="label">
+      URBAN BEDS
+    </div>
+  </div>
+  <div class="teal statistic">
+    <div class="value">
+      {{summary.urbanHospitals}}
+    </div>
+    <div class="label">
+      URBAN HOSPITALS
+    </div>
+  </div>
+</div>
+  <hr>
+  <div class="col-md-4">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text"><i class="fa fa-search fa-lg"></i></div>
+  <input class=form-control  Type="text"  name="search"[(ngModel)]="Searchbox" autocomplete="off"placeholder="Search state">
+  <a class="btn btn-outline-secondary" (click)="searchclear()" *ngIf=Searchbox ><i class="fa fa-close"></i></a>
+  <br>
+  <hr>
+      </div></div>
+</div>
+<hr>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">state</th>
+        <th scope="col">RuralBeds</th>
+        <th scope="col">RuralHospitals</th>
+        <th scope="col">TotalBeds</th>
+        <th scope="col">TotalHospitals</th>
+        <th scope="col">UrbanBeds</th>
+        <th scope="col">UrbanHospitals</th>
+          <th scope="col">Ason Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let cs of hospital |filter:Searchbox ; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{cs.state}}</td>
+        <td>{{cs.ruralBeds}}</td>
+        <td>{{cs.ruralHospitals}}</td>
+        <td>{{cs.totalBeds}}</td>
+        <td>{{cs.totalHospitals}}</td>
+        <td>{{cs.urbanBeds}}</td>
+        <td>{{cs.urbanHospitals}}</td>
+        <td>{{cs.asOn|date}}</td>
+      </tr>
+      <tr style=" background-color: black;">
+        <td></td>
+        <td>TOTAL CASES</td>
+        <td><b>{{summary.ruralBeds}}</b></td>
+        <td><b>{{summary.ruralHospitals}}</b></td>
+        <td><b>{{summary.totalBeds}}</b></td>
+        <td><b>{{summary.totalHospitals}}</b></td>
+        <td><b>{{summary.urbanBeds}}</b></td>
+        <td><b>{{summary.urbanHospitals}}</b></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+

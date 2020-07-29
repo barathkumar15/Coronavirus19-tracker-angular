@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink='/'><div class="ui inverted segment">
+  <h4 class="ui red inverted header"><i class="heartbeat icon"></i>CoronaVirus19-Tracker</h4>
+  </div></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink='/'><i class="globe icon"></i>Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/countries'><i class="location arrow icon"></i>Countries</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" routerLink='/india' id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="in flag"></i>India
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <!-- <a class="dropdown-item" routerLink='/Rawpatientdata'><i class="users icon"></i>Unofficial-PatientData</a> -->
+          <a class="dropdown-item" routerLink='/Testing-stats'><i class="info circle icon"></i>Testing stats</a>
+          <a class="dropdown-item" routerLink='/Hosptial-Beds'><i class="hospital icon"></i>Hospitals & <i class="bed icon"></i>beds</a>
+          <a class="dropdown-item" routerLink='/medical-colleges'><i class="graduation cap icon"></i>Medical-colleges</a>
+          <a class="dropdown-item" routerLink='/contact'><i class="address card icon"></i>Contact & helpline</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+

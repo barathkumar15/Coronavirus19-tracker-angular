@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">TimeStamp</th>
+        <th scope="col">TotalSamplesTested</th>
+        <th scope="col">TotalIndividualsTested</th>
+        <th scope="col">TotalPositiveCases</th>
+        <th scope="col">Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let cs of testdata let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{cs.timestamp|date}}</td>
+           <td>{{cs.totalSamplesTested}}</td>
+        <td>{{cs.totalIndividualsTested}}</td>
+        <td>{{cs.totalPositiveCases}}</td>
+        <td><a href="{{cs.source}}">{{cs.source}}</a></td>
+     
+      </tr>
+    </tbody>
+  </table>
+</div>
+
