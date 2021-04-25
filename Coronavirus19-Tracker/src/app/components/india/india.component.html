@@ -1,10 +1,10 @@
-<div class="jumbotron bg-black text-center" >
+<div class="bg-black text-center" >
   <h1 class="display-4"><i class="heartbeat icon"></i>CoronaVirus-19 <i class="chart bar icon"></i>Tracker <i class="fa fa-location-arrow" aria-hidden="true"></i> India</h1>
   <h3 class="display-4"><i class="graduation cap icon"></i>India's Report</h3>
   <hr>
   <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive'
   [totalDeaths]='totalDeaths' [totalRecovered]='totalRecovered'></app-dashboard-card>
-  <h4>Updated on {{upDate}}</h4>
+  <h4>Updated on {{upDate | date: "medium"}}</h4>
   <div class="col-md-4">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -16,7 +16,7 @@
       </div></div>
 </div>
 <hr>
-<div class="table-responsive">
+<div class="table-responsive" id="tabheight">
   <table class="table table-bordered table-striped table-dark">
     <thead>
       <tr>
@@ -31,19 +31,19 @@
     <tbody>
       <tr *ngFor= "let cs of Statewise |filter:Searchbox ; let i=index;">
         <td>{{i+1}}</td>
-        <td>{{cs.state}}</td>
-        <td>{{cs.confirmed}}</td>
-        <td>{{cs.recovered}}</td>
-        <td>{{cs.deaths}}</td>
-        <td>{{cs.active}}</td>
+        <td>{{cs.state.toLocaleString()}}</td>
+        <td>{{cs.confirmed.toLocaleString()}}</td>
+        <td>{{cs.recovered.toLocaleString()}}</td>
+        <td>{{cs.deaths.toLocaleString()}}</td>
+        <td>{{cs.active.toLocaleString()}}</td>
       </tr>
       <tr>
         <td></td>
         <td>TOTAL CASES</td>
-        <td><b>{{totalConfirmed}}</b></td>
-        <td><b>{{totalRecovered}}</b></td>
-        <td><b>{{totalDeaths}}</b></td>
-        <td><b>{{totalActive}}</b></td>
+        <td><b>{{totalConfirmed.toLocaleString()}}</b></td>
+        <td><b>{{totalRecovered.toLocaleString()}}</b></td>
+        <td><b>{{totalDeaths.toLocaleString()}}</b></td>
+        <td><b>{{totalActive.toLocaleString()}}</b></td>
       </tr>
     </tbody>
   </table>

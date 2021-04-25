@@ -1,12 +1,11 @@
 <ul class="list-group">
-  <li class="list-group-item list-group-item-primary" style="text-transform: uppercase;">COUNTRY: <b>{{country}}</b></li>
-  <li class="list-group-item list-group-item-warning">NEW CONFIRMED CASES: <b>{{newConfirmed}}</b></li>
-  <li class="list-group-item list-group-item-warning">TOTAL CONFIRMED CASES: <b>{{totalConfirmed}}</b></li>
-  <li class="list-group-item list-group-item-dark">TOTAL ACTIVE CASES: <b>{{totalActive}}</b></li>
-    <li class="list-group-item list-group-item-info">NEW RECOVERED CASES: <b>{{newRecovered}}</b></li>
-  <li class="list-group-item list-group-item-info">TOTAL RECOVERED CASES: <b>{{totalRecovered}}</b></li>
-  <li class="list-group-item list-group-item-danger">NEW DEATHS CASES: <b>{{newDeaths}}</b></li>
-  <li class="list-group-item list-group-item-danger">TOTAL DEATHS CASES: <b>{{totalDeaths}}</b></li>
-
+  <li class="list-group-item list-group-item-primary" style="text-transform: uppercase;">COUNTRY: <b>{{data.selectedCountry.Country}}</b></li>
+  <li class="list-group-item list-group-item-warning">NEW CONFIRMED CASES: <b>{{data.selectedCountry.NewConfirmed}}</b></li>
+  <li class="list-group-item list-group-item-warning">TOTAL CONFIRMED CASES: <b>{{data.selectedCountry.TotalConfirmed}}</b></li>
+  <li class="list-group-item list-group-item-dark">TOTAL ACTIVE CASES: <b>{{data.selectedCountry.TotalConfirmed-data.selectedCountry.TotalRecovered-data.selectedCountry.TotalDeaths}}</b></li>
+    <li class="list-group-item list-group-item-info">NEW RECOVERED CASES: <b>{{data.selectedCountry.NewRecovered}}</b></li>
+  <li class="list-group-item list-group-item-info">TOTAL RECOVERED CASES: <b>{{data.selectedCountry.TotalRecovered}}</b></li>
+  <li class="list-group-item list-group-item-danger">NEW DEATHS CASES: <b>{{data.selectedCountry.NewDeaths}}</b></li>
+  <li class="list-group-item list-group-item-danger">TOTAL DEATHS CASES: <b>{{data.selectedCountry.TotalDeaths}}</b></li>
 </ul>
 

@@ -1,67 +1,67 @@
-<div class="jumbotron bg-black text-center" >
-<h1 class="display-4"><i class="heartbeat icon"></i>CoronaVirus-19 <i class="chart bar icon"></i>Tracker W<i class="globe icon"></i>rldwide</h1>
-<hr>
-<app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive'
-[totalDeaths]='totalDeaths' [totalRecovered]='totalRecovered'></app-dashboard-card>
-<h4>Updated on {{upDate}}</h4>
+<div class="bg-black text-center" >
+  <h1 class="display-4"><i class="heartbeat icon"></i>CoronaVirus-19 <i class="chart bar icon"></i>Tracker W<i class="globe icon"></i>rldwide</h1>
   <hr>
-  <div class="col-md-4">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <div class="input-group-text"><i class="fa fa-search fa-lg"></i></div>
-  <input class=form-control  Type="text"  name="search"[(ngModel)]="Searchbox" autocomplete="off"placeholder="Seacrh">
-  <a class="btn btn-outline-secondary" (click)="searchclear()" *ngIf=Searchbox ><i class="fa fa-close"></i></a>
-  <br>
-  <hr>
-      </div></div>
-</div>
-  <div>
-    <div class="table-responsive">
-  <table class="table table-bordered table-striped table-dark" matSort (matSortChange)="sortData($event)">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th  mat-sort-header="Country" scope="col" >Country</th>
-        <th mat-sort-header="TotalConfirmed" scope="col">TotalConfirmed</th>
-        <th scope="col">NewConfirmed</th>
-        <th mat-sort-header="TotalDeaths" scope="col">TotalDeaths</th>
-        <th mat-sort-header="NewDeaths" scope="col">NewDeaths</th>
-        <th scope="col">TotalRecovered</th>
-        <th mat-sort-header="NewRecovered" scope="col">NewRecovered</th>
-        <th scope="col">TotalActive</th>
-      </tr>
-    </thead>
-    <tbody>
+  <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive'
+  [totalDeaths]='totalDeaths' [totalRecovered]='totalRecovered'></app-dashboard-card>
+  <h4>Updated on {{upDate | date: "medium"}}</h4>
+    <hr>
+    <div class="col-md-4">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-search fa-lg"></i></div>
+    <input class=form-control  Type="text"  name="search"[(ngModel)]="Searchbox" autocomplete="off"placeholder="Seacrh">
+    <a class="btn btn-outline-secondary" (click)="searchclear()" *ngIf=Searchbox ><i class="fa fa-close"></i></a>
+    <br>
+    <hr>
+        </div></div>
+  </div>
+    <div>
+      <div class="table-responsive" id="tabheight">
+    <table class="table table-bordered table-striped table-dark" matSort (matSortChange)="sortData($event)">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th  mat-sort-header="Country" scope="col" >Country</th>
+          <th mat-sort-header="TotalConfirmed" scope="col">TotalConfirmed</th>
+          <th scope="col">NewConfirmed</th>
+          <th mat-sort-header="TotalDeaths" scope="col">TotalDeaths</th>
+          <th mat-sort-header="NewDeaths" scope="col">NewDeaths</th>
+          <th scope="col">TotalRecovered</th>
+          <th mat-sort-header="NewRecovered" scope="col">NewRecovered</th>
+          <th scope="col">TotalActive</th>
+        </tr>
+      </thead>
+      <tbody>
 
-      <tr *ngFor= "let cs of SortedTableData |filter:Searchbox; let i=index;">
-        <td>{{i+1}}</td>
-        <td><a class="btn btn-sm text-white" (click)="view(i)">{{cs.Country}}</a></td>
-        <td>{{cs.TotalConfirmed}}</td>
-        <td style="background-color: rgba(226, 99, 26, 0.404) ;">{{cs.NewConfirmed}}</td>
-        <td>{{cs.TotalDeaths}}</td>
-        <td style="background-color: rgba(226, 26, 26, 0.363) ;">{{cs.NewDeaths}}</td>
-        <td>{{cs.TotalRecovered}}</td>
-        <td style="background-color: rgba(49, 226, 26, 0.37) ;">{{cs.NewRecovered}}</td>
-        <td style="background-color: rgba(26, 106, 226, 0.39) ;">{{cs.TotalConfirmed-cs.TotalRecovered-cs.TotalDeaths}}</td>
-      </tr>
+        <tr *ngFor= "let cs of SortedTableData |filter:Searchbox; let i=index;">
+          <td>{{i+1}}</td>
+          <td><a class="btn btn-sm text-white" (click)="view(cs)">{{cs.Country}}</a></td>
+          <td>{{cs.TotalConfirmed.toLocaleString()}}</td>
+          <td style="background-color: rgba(226, 99, 26, 0.404) ;">{{cs.NewConfirmed.toLocaleString()}}</td>
+          <td>{{cs.TotalDeaths.toLocaleString()}}</td>
+          <td style="background-color: rgba(226, 26, 26, 0.363) ;">{{cs.NewDeaths.toLocaleString()}}</td>
+          <td>{{cs.TotalRecovered.toLocaleString()}}</td>
+          <td style="background-color: rgba(49, 226, 26, 0.37) ;">{{cs.NewRecovered.toLocaleString()}}</td>
+          <td style="background-color:rgba(238, 255, 0, 0.329);">{{(cs.TotalConfirmed-cs.TotalRecovered-cs.TotalDeaths).toLocaleString()}}</td>
+        </tr>
 
-      <tr style="background-color: rgb(0, 0, 0);">
-        <td></td>
-        <td><b>WORLD TOTAL CASES</b></td>
-        <td>{{totalConfirmed}}</td>
-        <td>{{newConfirmed}}</td>
-        <td>{{totalDeaths}}</td>
-        <td>{{newDeaths}}</td>
-        <td>{{totalRecovered}}</td>
-        <td>{{newRecovered}}</td>
-        <td>{{totalConfirmed-totalRecovered-totalDeaths}}</td>
-      </tr>
-    </tbody>
-  </table>
+        <tr style="background-color: rgb(0, 0, 0);">
+          <td></td>
+          <td><b>WORLD TOTAL CASES</b></td>
+          <td>{{totalConfirmed.toLocaleString()}}</td>
+          <td>{{newConfirmed.toLocaleString()}}</td>
+          <td>{{totalDeaths.toLocaleString()}}</td>
+          <td>{{newDeaths.toLocaleString()}}</td>
+          <td>{{totalRecovered.toLocaleString()}}</td>
+          <td>{{newRecovered.toLocaleString()}}</td>
+          <td>{{(totalConfirmed-totalRecovered-totalDeaths).toLocaleString()}}</td>
+        </tr>
+      </tbody>
+    </table>
 
-</div>
-</div>
-</div>
+  </div>
+  </div>
+  </div>
 
 
 

@@ -1,19 +1,23 @@
-<app-navbar></app-navbar>
+
+<div class="content {{storedTheme}}" role="main">
+  <app-navbar></app-navbar>
+  <div class="content-box">
+
+    <div class="theme-switcher-wrap">
+        <i class="fa fa-moon-o fa-2x" style="padding-right:15px;" *ngIf="storedTheme=='theme-light'"><h6>Dark theme</h6></i>
+        <i class="fa fa-sun-o fa-2x" style="padding-right:15px;" *ngIf="storedTheme=='theme-dark'"><h6>Light theme</h6></i>
+          <label
+        [ngClass]="(storedTheme === 'theme-dark')?'theme-switcher active' :'theme-switcher'" (click)="setTheme()" >
+            <div class="switch-path">
+                <div class="switch-handle">
+                </div>
+            </div>
+        </label>
+    </div>
+
 <router-outlet></router-outlet>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center"><ul class="nav justify-content-center">
- <a class="navbar-brand" routerLink='/'><div class="ui inverted segment">
-  <h4 class="ui red inverted header"><i class="heartbeat icon"></i>CoronaVirus19-Tracker</h4>
-  Contact: smartbarath1996@gmail.com
-  </div></a>
-</ul><p style="color: rgb(255, 255, 255);">Copyright ©2020 All rights reserved | Created By Barath Kumar Gunasekaran </p>
-
-    <ul class="social-network social-circle">
-      <li><a href="https://github.com/barathkumar15" class="icoRss" title="Github"><i class="fa fa-github "></i></a></li>
-      <li><a href="https://www.facebook.com/barathkumar.gunasekaran" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-      <li><a href="https://twitter.com/smartbarath" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-      <li><a href="https://www.instagram.com/batty_lub/" class="icoGoogle" title="instagram"><i class="fa fa-instagram"></i></a></li>
-      <li><a href="https://www.linkedin.com/in/barathkumar15/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-    </ul>
-
-</nav>
-
+<br><br>
+<app-symptoms></app-symptoms>
+  </div>
+</div>
+<app-footer></app-footer>

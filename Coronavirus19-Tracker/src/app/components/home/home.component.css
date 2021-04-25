@@ -5,3 +5,7 @@ th {
   z-index: 2;
   background-color: black;
 }
+
+#tabheight{
+  height: 525px;
+}

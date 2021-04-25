@@ -8,6 +8,7 @@ import { MedicalCollegesComponent } from './components/medical-colleges/medical-
 import { HospitalBedsComponent } from './components/hospital-beds/hospital-beds.component';
 import { TestingStatsComponent } from './components/testing-stats/testing-stats.component';
 import { RawpatientdataComponent } from './components/rawpatientdata/rawpatientdata.component';
+import { EpassComponent } from './components/epass/epass.component';
 
 const routes: Routes = [
   {path : '' , component : HomeComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path : 'medical-colleges', component: MedicalCollegesComponent},
   {path : 'Hosptial-Beds', component: HospitalBedsComponent},
   {path : 'Testing-stats', component: TestingStatsComponent},
-  {path : 'Rawpatientdata', component: RawpatientdataComponent}
+  {path : 'Rawpatientdata', component: RawpatientdataComponent},
+  {path : 'epass', component: EpassComponent}
 
 ];
 

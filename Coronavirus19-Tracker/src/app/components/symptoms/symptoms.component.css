@@ -1,0 +1,16 @@
+#bg{
+  background-color: rgb(15, 9, 9);
+
+}
+
+hr{
+  border:1px dashed red;
+  border-radius: 2px;
+  opacity: .5;
+}
+.avatar {
+  vertical-align: middle;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}

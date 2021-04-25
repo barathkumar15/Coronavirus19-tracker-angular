@@ -1,57 +1,58 @@
-<div class="jumbotron bg-black text-center" >
+<div class="bg-black text-center" >
    <h1 class="display-4"><i class="heartbeat icon"></i>CoronaVirus-19 <i class="chart bar icon"></i>Tracker <i class="fa fa-location-arrow" aria-hidden="true"></i> India</h1>
   <h3 class="display-4"><i class="hospital icon"></i>Hospitals and <i class="bed icon"></i>Beds</h3>
   <hr>
   <div class="ui statistics">
-  <div class="red statistic">
-    <div class="value">
-      {{summary.ruralBeds}}
+    <div class="red statistic">
+      <div class="value">
+        {{summary.ruralBeds.toLocaleString()}}
+      </div>
+      <div class="label" style="background-color:rgba(247, 10, 10, 0.808);">
+        RURAL BEDS
+      </div>
     </div>
-    <div class="label">
-      RURAL BEDS
+    <div class="orange statistic">
+      <div class="value">
+        {{summary.ruralHospitals.toLocaleString()}}
+      </div>
+      <div class="label" style="background-color:orange;">
+        RURAL HOSPITALS
+      </div>
+    </div>
+    <div class="yellow statistic">
+      <div class="value">
+        {{summary.totalBeds.toLocaleString()}}
+      </div>
+      <div class="label" style="background-color:yellow;">
+        TOTAL BEDS
+      </div>
+    </div>
+    <div class="olive statistic">
+      <div class="value">
+        {{summary.totalHospitals.toLocaleString()}}
+      </div>
+      <div class="label" style="background-color:olive;">
+        TOTAL HOSPITALS
+      </div>
+    </div>
+    <div class="green statistic">
+      <div class="value">
+        {{summary.urbanBeds.toLocaleString()}}
+      </div>
+      <div class="label" style="background-color:green;">
+        URBAN BEDS
+      </div>
+    </div>
+    <div class="teal statistic">
+      <div class="value">
+        {{summary.urbanHospitals.toLocaleString()}}
+      </div>
+      <div class="label" style="background-color:teal;">
+        URBAN HOSPITALS
+      </div>
     </div>
   </div>
-  <div class="orange statistic">
-    <div class="value">
-      {{summary.ruralHospitals}}
-    </div>
-    <div class="label">
-      RURAL HOSPITALS
-    </div>
-  </div>
-  <div class="yellow statistic">
-    <div class="value">
-      {{summary.totalBeds}}
-    </div>
-    <div class="label">
-      TOTAL BEDS
-    </div>
-  </div>
-  <div class="olive statistic">
-    <div class="value">
-      {{summary.totalHospitals}}
-    </div>
-    <div class="label">
-      TOTAL HOSPITALS
-    </div>
-  </div>
-  <div class="green statistic">
-    <div class="value">
-      {{summary.urbanBeds}}
-    </div>
-    <div class="label">
-      URBAN BEDS
-    </div>
-  </div>
-  <div class="teal statistic">
-    <div class="value">
-      {{summary.urbanHospitals}}
-    </div>
-    <div class="label">
-      URBAN HOSPITALS
-    </div>
-  </div>
-</div>
+
   <hr>
   <div class="col-md-4">
     <div class="input-group mb-3">
@@ -64,7 +65,7 @@
       </div></div>
 </div>
 <hr>
-<div class="table-responsive">
+<div class="table-responsive" id="tabheight">
   <table class="table table-bordered table-striped table-dark">
     <thead>
       <tr>

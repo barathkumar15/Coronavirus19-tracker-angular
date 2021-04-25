@@ -21,6 +21,9 @@ import { TestingStatsComponent } from './components/testing-stats/testing-stats.
 import { RawpatientdataComponent } from './components/rawpatientdata/rawpatientdata.component';
 import { PopupsComponent } from './components/popups/popups.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FooterComponent } from './components/footer/footer.component';
+import { SymptomsComponent } from './components/symptoms/symptoms.component';
+import { EpassComponent } from './components/epass/epass.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     HospitalBedsComponent,
     TestingStatsComponent,
     RawpatientdataComponent,
-    PopupsComponent
+    PopupsComponent,
+    FooterComponent,
+    SymptomsComponent,
+    EpassComponent
   ],
   imports: [
     BrowserModule,

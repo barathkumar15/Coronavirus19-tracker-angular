@@ -3,3 +3,6 @@
 .card:hover {
   background-color: #ccc;
 }
+.card-text{
+  font-size: 2.8rem;
+}

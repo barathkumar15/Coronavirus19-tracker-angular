@@ -11,18 +11,16 @@ export class HospitalBedsComponent implements OnInit {
   constructor(private dataservice: DataServiceService) { }
   hospital:any;
   summary:any;
+
 Searchbox;
   searchclear(){
     this.Searchbox='';
 
   }
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.dataservice.getHospitalData().subscribe(data=>{
-      console.log("data", data);
       this.hospital = data.data.regional;
       this.summary = data.data.summary;
-      console.log("test",this.hospital)
-      
     })
 
   }

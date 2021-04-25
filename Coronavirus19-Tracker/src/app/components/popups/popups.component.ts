@@ -25,19 +25,6 @@ totalActive:number
 
   ngOnInit(): void {
 
-    this.dataService.getCountries().subscribe(data1=>{
-      this.local= data1.Countries[this.data.i];
-      this.country=data1.Countries[this.data.i].Country;
-      this.newConfirmed=data1.Countries[this.data.i].NewConfirmed;
-      this.newDeaths=data1.Countries[this.data.i].NewDeaths;
-      this.newRecovered=data1.Countries[this.data.i].NewRecovered;
-      this.totalConfirmed=data1.Countries[this.data.i].TotalConfirmed;
-      this.totalDeaths=data1.Countries[this.data.i].TotalDeaths;
-      this.totalRecovered=data1.Countries[this.data.i].TotalRecovered;
-      this.totalActive=this.totalConfirmed-this.totalRecovered-this.totalDeaths;
-
-      console.log("log", this.local)
-    })
   }
 
 }

@@ -41,6 +41,7 @@ SortedTableData;
   newConfirmed:number
   newDeaths:number
   newRecovered:number
+  newarray=[];
   constructor(private dataService: DataServiceService,
     private dialog: MatDialog)
     {
@@ -52,7 +53,7 @@ view(i)
   const dialogConfig= new MatDialogConfig();
   dialogConfig.autoFocus=true;
   dialogConfig.data={i};
-
+  dialogConfig.data={ selectedCountry : i};
   this.dialog.open(PopupsComponent, dialogConfig);
 
 }
@@ -65,18 +66,44 @@ view(i)
   }
   refresh(){
     this.dataService.getCountries().subscribe(data=>{
-
+      console.log("data", data);
       this.GlobalData = data.Global;
       this.countries= data.Countries;
-      this.SortedTableData=this.countries;
-      this.totalConfirmed=this.GlobalData.TotalConfirmed
-      this.totalRecovered=this.GlobalData.TotalRecovered
-      this.totalDeaths=this.GlobalData.TotalDeaths
+      console.log("data", this.countries);
+
+let len=data.Countries.length;
+for (let i = 0; i < len - 1; i++) {
+            for (let j = 0; j < len - i - 1; j++) {
+                if (this.countries[j].TotalConfirmed > this.countries[j + 1].TotalConfirmed)
+                {
+                    let temp = this.countries[j];
+                    this.countries[j] = this.countries[j + 1];
+                    this.countries[j + 1] = temp;
+
+                }
+    } }
+    for(let i=0;i<len;i++){
+
+      this.newarray[i]=this.countries[len-1-i]
+
+    }
+console.log("data>>", this.newarray);
+
+      this.SortedTableData=this.newarray;
+      //dashboard cards data
+      this.totalConfirmed=this.GlobalData.TotalConfirmed.toLocaleString();
+      this.totalRecovered=this.GlobalData.TotalRecovered.toLocaleString();
+      this.totalDeaths=this.GlobalData.TotalDeaths.toLocaleString();
+      let totalActiveCase;
+      totalActiveCase = (this.GlobalData.TotalConfirmed-this.GlobalData.TotalRecovered-this.GlobalData.TotalDeaths).toLocaleString();
+      this.totalActive=totalActiveCase;
+      this.upDate=this.countries[0].Date;
+     //new cases
       this.newConfirmed=this.GlobalData.NewConfirmed
       this.newDeaths=this.GlobalData.NewDeaths
       this.newRecovered=this.GlobalData.NewRecovered
-      this.totalActive=this.totalConfirmed-this.totalRecovered-this.totalDeaths
-      this.upDate=this.countries[0].Date;
+
+
     })
 
 
@@ -97,8 +124,6 @@ view(i)
         case 'NewRecovered': return compare(a.NewRecovered, b.NewRecovered, isAsc);
         case 'NewDeaths': return compare(a.NewDeaths, b.NewDeaths, isAsc);
         case 'TotalDeaths': return compare(a.TotalDeaths, b.TotalDeaths, isAsc);
-
-
 
         default: return 0 ;
       }

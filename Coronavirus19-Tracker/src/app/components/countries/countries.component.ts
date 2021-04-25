@@ -24,9 +24,7 @@ export class CountriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getCountries().subscribe(data=>{
-
       this.countries = data.Countries;
-
     })
   }
   getCountry(country:any){
@@ -34,10 +32,14 @@ export class CountriesComponent implements OnInit {
     this.service.getCoronaRealtimeData(this.country).subscribe(data=>{
       this.selected=data
       var index=data.length-1
-      this.totalConfirmed=data[index].Confirmed
-      this.totalRecovered=data[index].Recovered
-      this.totalDeaths=data[index].Deaths
-      this.totalActive=data[index].Active
+      this.totalConfirmed=data[index].Confirmed.toLocaleString();
+      this.totalRecovered=data[index].Recovered.toLocaleString();
+      this.totalDeaths=data[index].Deaths.toLocaleString();
+      this.totalActive=data[index].Active.toLocaleString();
+      for(let i=0;i<index;i++){
+
+        this.selected[i]=data[index-i]
+      }
     })
   }
 }

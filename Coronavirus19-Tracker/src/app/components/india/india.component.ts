@@ -24,10 +24,10 @@ export class IndiaComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getCoronaIndiaData().subscribe(data=>{
        this.GlobalData=data.data.total
-       this.totalConfirmed=this.GlobalData.confirmed
-       this.totalRecovered=this.GlobalData.recovered
-       this.totalDeaths=this.GlobalData.deaths
-       this.totalActive=this.GlobalData.active
+       this.totalConfirmed=this.GlobalData.confirmed.toLocaleString();
+       this.totalRecovered=this.GlobalData.recovered.toLocaleString();
+       this.totalDeaths=this.GlobalData.deaths.toLocaleString();
+       this.totalActive=this.GlobalData.active.toLocaleString();
        this.upDate=data.lastOriginUpdate
       this.Statewise=data.data.statewise
     })
